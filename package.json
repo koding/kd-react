@@ -1,0 +1,22 @@
+{
+  "name": "@koding/kd-react",
+  "version": "0.0.0",
+  "description": "React components of KD framework views",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/koding/kd-react.git"
+  },
+  "keywords": [
+    "kd",
+    "react"
+  ],
+  "author": "Umut Sirin <umut@koding.com>",
+  "bugs": {
+    "url": "https://github.com/koding/kd-react/issues"
+  },
+  "homepage": "https://github.com/koding/kd-react#readme"
+}
