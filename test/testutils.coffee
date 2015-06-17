@@ -17,6 +17,7 @@ $ = (component, selector) ->
   else
     findRenderedDOMComponentWithTag component, selector
 
+
 ###*
  * Returns the classlist of given dom node.
  *
@@ -27,6 +28,7 @@ $.classList = (domNode) -> domNode.className.split ' '
 
 noop = ->
 noop.type = 'noop'
+
 
 ###*
  * Takes a component and injects an event emitter into lifecycle methods to be
@@ -78,7 +80,6 @@ injectLifecycleHooks = (Component) ->
   _on = (args...) -> emitter.on args...
 
   return { restore, on: _on }
-
 
 
 module.exports = TestUtils = {
