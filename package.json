@@ -15,6 +15,7 @@
     "react"
   ],
   "author": "Umut Sirin <umut@koding.com>",
+  "licence": "MIT",
   "bugs": {
     "url": "https://github.com/koding/kd-react/issues"
   },
