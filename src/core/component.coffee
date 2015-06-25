@@ -1,6 +1,12 @@
 { Component: ReactComponent } = require 'react'
+reactMixin                    = require 'react-mixin'
 
 module.exports = class KDReactComponent extends ReactComponent
+
+  @include = (mixins) ->
+
+    mixins.forEach (mixin) => reactMixin.onClass this, mixin
+
 
   ###*
    * Bind instance context to instance method with given method name. It binds
