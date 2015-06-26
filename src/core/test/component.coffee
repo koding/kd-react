@@ -14,6 +14,28 @@ describe 'KDReactComponent', ->
     expect(<FooComponent />).to.be.ok
 
 
+  describe 'include', ->
+
+    it 'adds react mixins', ->
+
+      flag = no
+      mixin =
+        componentDidMount: -> flag = yes
+        getDefaultProps: -> { foo: 'bar' }
+
+      class FooComponent extends KDReactComponent
+        @include [mixin]
+        render: -> <div />
+
+      expect(FooComponent.defaultProps).to.eql { foo: 'bar' }
+
+      component = TestUtils.renderIntoDocument(
+        <FooComponent />
+      )
+
+      expect(flag).to.equal yes
+
+
   describe '#bound', ->
 
     it 'has KDObject::bound abilities', ->
