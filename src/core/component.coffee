@@ -15,17 +15,17 @@ module.exports = class KDReactComponent extends ReactComponent
    * @param {string} methodName
    * @return {function}
   ###
-  bound: (methodName) ->
+  bound: (methodName, args...) ->
 
     unless typeof this[methodName] is 'function'
       throw new Error "bound: unknown method! #{methodName}"
 
     boundedName = "__bound__#{methodName}"
 
-    return this[boundedName]  if this[boundedName]
+    return this[boundedName].bind this, args...  if this[boundedName]
 
     Object.defineProperty this, boundedName, { value: this[methodName].bind this }
 
-    return this[boundedName]
+    return this[boundedName].bind this, args...
 
 
