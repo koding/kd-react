@@ -15,17 +15,22 @@ module.exports = class KDReactComponent extends ReactComponent
    * @param {string} methodName
    * @return {function}
   ###
-  bound: (methodName, args...) ->
+  bound: (methodName) ->
 
     unless typeof this[methodName] is 'function'
       throw new Error "bound: unknown method! #{methodName}"
 
     boundedName = "__bound__#{methodName}"
 
-    return this[boundedName].bind this, args...  if this[boundedName]
+    return this[boundedName]  if this[boundedName]
 
     Object.defineProperty this, boundedName, { value: this[methodName].bind this }
 
-    return this[boundedName].bind this, args...
+    return this[boundedName]
 
+
+  ###*
+   * Bind instance context to instance method with given method name and given arguments
+  ###
+  lazyBound: (methodName, args...)-> this[methodName].bind this, args...
 
