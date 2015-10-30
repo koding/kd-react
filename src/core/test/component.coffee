@@ -64,3 +64,22 @@ describe 'KDReactComponent', ->
 
       expect(flag).to.equal yes
 
+
+  describe '#lazyBound', ->
+
+    it 'may accept arguments', ->
+
+      _args = []
+      class BarComponent extends KDReactComponent
+        onClick: (first, second, third, event) -> _args = [first, second, third]
+        render: -> <div onClick={@lazyBound 'onClick', 'foo', 'bar', 'baz'} />
+
+      component = TestUtils.renderIntoDocument(
+        <BarComponent />
+      )
+
+      element = TestUtils.findRenderedDOMComponentWithTag component, 'div'
+      TestUtils.Simulate.click element
+
+      expect(_args).to.eql ['foo', 'bar', 'baz']
+

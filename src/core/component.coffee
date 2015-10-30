@@ -29,3 +29,8 @@ module.exports = class KDReactComponent extends ReactComponent
     return this[boundedName]
 
 
+  ###*
+   * Bind instance context to instance method with given method name and given arguments
+  ###
+  lazyBound: (methodName, args...)-> @[methodName].bind this, args...
+
