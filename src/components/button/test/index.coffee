@@ -1,5 +1,6 @@
 { expect }    = require 'chai'
 React         = require 'react/addons'
+ReactDOM      = require 'react-dom'
 { TestUtils } = React.addons
 KDButton      = require '../'
 
@@ -18,7 +19,7 @@ describe 'KDButtonComponent', ->
         <KDButton className="Foo" />
       )
 
-      domNode = React.findDOMNode button
+      domNode = ReactDOM.findDOMNode button
 
       expect($.classList domNode).to.contain 'Button'
       expect($.classList domNode).to.contain 'Foo'
@@ -48,15 +49,15 @@ describe 'KDButtonComponent', ->
       title = $ button, '.Button-title'
       _buttonInstance = $ button, 'button'
 
-      expect(title.getDOMNode().textContent).to.equal 'foo'
-      expect(_buttonInstance.getDOMNode().children.length).to.equal 1
+      expect(title.textContent).to.equal 'foo'
+      expect(_buttonInstance.children.length).to.equal 1
 
       buttonWithoutTitle = TestUtils.renderIntoDocument(
         <KDButton />
       )
 
       _buttonInstance = $ buttonWithoutTitle, 'button'
-      expect(_buttonInstance.getDOMNode().children.length).to.equal 0
+      expect(_buttonInstance.children.length).to.equal 0
 
 
     it 'uses icon prop', ->
@@ -80,7 +81,7 @@ describe 'KDButtonComponent', ->
       _buttonInstance = $ button, 'button'
 
       expect(loader).to.be.ok
-      expect(_buttonInstance.getDOMNode().children.length).to.equal 1
+      expect(_buttonInstance.children.length).to.equal 1
 
 
     it 'renders both title and icon together', ->
@@ -95,7 +96,7 @@ describe 'KDButtonComponent', ->
 
       expect(title).to.be.ok
       expect(icon).to.be.ok
-      expect(_buttonInstance.getDOMNode().children.length).to.equal 2
+      expect(_buttonInstance.children.length).to.equal 2
 
 
     it 'only renders loader if loader is set', ->
@@ -106,7 +107,7 @@ describe 'KDButtonComponent', ->
 
       buttonInstance = $ button, 'button'
 
-      { children } = buttonInstance.getDOMNode()
+      { children } = buttonInstance
 
       expect(children.length).to.equal 1
       expect(children[0].className).to.equal 'Button-loader'

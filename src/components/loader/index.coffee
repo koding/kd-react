@@ -16,7 +16,7 @@ module.exports = class KDLoader extends KDComponent
       radius    : React.PropTypes.number
       corners   : React.PropTypes.number
       rotate    : React.PropTypes.number
-      direction : React.PropTypes.oneOf([1 -1])
+      direction : React.PropTypes.oneOf([1, -1])
       color     : React.PropTypes.string
       speed     : React.PropTypes.number
       trail     : React.PropTypes.number
@@ -30,7 +30,7 @@ module.exports = class KDLoader extends KDComponent
 
   componentDidMount: ->
 
-    new Spinner(@props.options).spin @refs.spinner.getDOMNode()
+    new Spinner(@props.options).spin @refs.spinner
 
 
   render: ->

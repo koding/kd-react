@@ -1,4 +1,5 @@
 React         = require 'react/addons'
+ReactDOM      = require 'react-dom'
 KDLoader      = require '../'
 { expect }    = require 'chai'
 { TestUtils } = React.addons
@@ -20,7 +21,7 @@ describe 'KDLoader', ->
         <KDLoader className="ExtraClass" />
       )
 
-      domNode = React.findDOMNode loader
+      domNode = ReactDOM.findDOMNode loader
       expect($.classList domNode).to.contain 'Loader'
       expect($.classList domNode).to.contain 'ExtraClass'
 
@@ -36,7 +37,7 @@ describe 'KDLoader', ->
       injector.on 'componentDidMount', (_loader) ->
 
         spinner = $ _loader, '.Loader-Spinner'
-        domNode = spinner.getDOMNode()
+        domNode = spinner
 
         expect(domNode.children.length).to.equal 1
         expect(domNode.children[0].className).to.equal 'spinner'
