@@ -22,15 +22,15 @@
   "homepage": "https://github.com/koding/kd-react#readme",
   "devDependencies": {
     "chai": "^3.0.0",
-    "coffee-react": "^3.2.0",
-    "jsdom": "^3.1.2",
-    "mocha": "^2.2.5"
+    "coffee-react": "^5.0.0",
+    "jsdom": "^9.4.5",
+    "mocha": "^3.0.2"
   },
   "dependencies": {
     "classnames": "^2.1.2",
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2",
-    "react-mixin": "3.0.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-mixin": "3.0.5",
     "spin.js": "^2.3.1"
   },
   "browserify": {
